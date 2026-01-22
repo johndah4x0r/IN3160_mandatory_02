@@ -1,6 +1,7 @@
 # Files generated from test bench
 /test/sim_build/
 /test/*.ghw
+/test/*.o
 /test/results.xml
 
 # Python modules cache
