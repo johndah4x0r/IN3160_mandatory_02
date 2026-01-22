@@ -8,8 +8,10 @@ EXTRA_ARGS +=--std=08
 # in your VHDL file 
 TOPLEVEL ?= decoder
 ARCHITECTURE ?= case
- 
-VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL)_ent.vhd 
+
+# Comment and un-comment as necessary 
+VHDL_ENT = $(PWD)/../src/$(TOPLEVEL)_ent.vhd
+VHDL_SOURCES += $(VHDL_ENT)
 VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL)_$(ARCHITECTURE).vhd 
  
 SIM_ARGS +=--wave=$(TOPLEVEL).ghw 

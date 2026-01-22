@@ -2,24 +2,27 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-architecture decoder_case of decoder is
-    signal c: std_ulogic_vector(3 downto 0);
-begin
-    -- connect signal 'c' to port 'ld'
-    ld <= c;
+entity decoder is
+    port (
+        sw: in std_ulogic_vector(1 downto 0);
+        ld: out std_ulogic_vector(3 downto 0)
+    );
+end entity decoder;
 
-    process (sw, ld) begin
+architecture decoder_case of decoder is
+begin
+    process (sw) begin
         case sw is
             when "00" => 
-                c <= "1110";
+                ld <= "1110";
             when "01" => 
-                c <= "1101";
+                ld <= "1101";
             when "10" => 
-                c <= "1011";
+                ld <= "1011";
             when "11" => 
-                c <= "0111";
+                ld <= "0111";
             when others =>
-                c <= "0000";
+                ld <= "0000";
         end case;
     end process;
 end architecture decoder_case;

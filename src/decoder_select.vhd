@@ -3,16 +3,13 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 architecture decoder_select of decoder is
-    signal c: std_ulogic_vector(3 downto 0);
 begin
-    -- connect signal 'c' to port 'ld'
-    ld <= c;
-
-    process (sw, ld) begin
+    process (sw) begin
         with sw select
-            c <=
+            -- patched case for sw = "01"
+            ld <=
                 "1110" when "00",
-                "1101" when "01",
+                "1001" when "01",
                 "1011" when "10",
                 "0111" when "11",
                 "0000" when others;
